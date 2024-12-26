@@ -54,7 +54,7 @@ const sessionOptions = {
 
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://protectify-df3q.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
