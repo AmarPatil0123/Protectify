@@ -34,7 +34,7 @@ const ChangePassword = ({ closeCP }) => {
       return;
     }
 
-    const response = await axios.post(`/changePassword/${selectedTab.owner}`, { newPassword });
+    const response = await axios.post(`https://protecttext.onrender.com/changePassword/${selectedTab.owner}`, { newPassword });
 
     setError('');
     setNewPassword("");

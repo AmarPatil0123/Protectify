@@ -52,7 +52,7 @@ const Room = () => {
   
   async function handleJoinRoom() {
 
-    let res = await axios.get(`http://localhost:8080/getRoomData/${joinValue}`);
+    let res = await axios.get(`https://protecttext.onrender.com/getRoomData/${joinValue}`);
     
     if(res && res.data.message === "room is private"){
       console.log(res)

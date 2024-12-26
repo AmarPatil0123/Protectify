@@ -30,7 +30,7 @@ const Navbar = () => {
         return;
       }
 
-      const response = await axios.get("http://localhost:8080/logout");
+      const response = await axios.get("https://protecttext.onrender.com/logout");
 
       dispatch(resetRoomname());
       dispatch(setIsLoggedInFalse());
@@ -66,7 +66,7 @@ const Navbar = () => {
     if(data){
       try {
         let ownerId = selectedTab.owner;
-        const response = await axios.get(`http://localhost:8080/deleteAccount/${ownerId}`);
+        const response = await axios.get(`https://protecttext.onrender.com/deleteAccount/${ownerId}`);
 
         dispatch(setIsLoggedInFalse());
         dispatch(resetRoomname());

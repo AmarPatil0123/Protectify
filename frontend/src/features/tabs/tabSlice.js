@@ -3,7 +3,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "https://protecttext.onrender.com";
 
 
 export const addnewTab = createAsyncThunk("addnewtab", async (userId, { rejectWithValue }) => {

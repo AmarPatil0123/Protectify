@@ -95,7 +95,7 @@ const RoomInterface = () => {
     }, [navigate]);
 
     async function deleteRoom() {
-        let res = await axios.delete(`http://localhost:8080/deleteRoom/${roomname}`);
+        let res = await axios.delete(`https://protecttext.onrender.com/deleteRoom/${roomname}`);
     }
 
     function handleLeave(){
@@ -115,7 +115,7 @@ const RoomInterface = () => {
     //fetching roomtype
     useEffect(()=>{
         let fetchRoomType = async ()=>{
-            let res = await axios.get(`http://localhost:8080/getRoomData/${roomname}`);
+            let res = await axios.get(`https://protecttext.onrender.com/getRoomData/${roomname}`);
             if(res.status === 200 || res.statusText === "OK"){
                 setRoomType(res.data.roomType);
             }
@@ -129,7 +129,7 @@ const RoomInterface = () => {
 
     //change room type
     async function changeRoomType() {
-        let res = await axios.put(`http://localhost:8080/updateRoomType/${roomname}`);
+        let res = await axios.put(`https://protecttext.onrender.com/updateRoomType/${roomname}`);
         if(res.status === 200 || res.statusText === "OK"){
             setRoomType(res.data.roomType);
         }

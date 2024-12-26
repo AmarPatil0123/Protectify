@@ -36,7 +36,7 @@ const RoomDialog = ({ createValue, setCreateValue, handleCreateRoom }) => {
         handleCreateRoom();
         setOpen(false);
 
-        let response = await axios.post("http://localhost:8080/createRoom", { roomname: createValue, groupType: groupType });
+        let response = await axios.post("https://protecttext.onrender.com/createRoom", { roomname: createValue, groupType: groupType });
     };
 
     return (
