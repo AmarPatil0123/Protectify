@@ -1,0 +1,157 @@
+.DataContainer{
+    max-width: 100vw;
+    height: 90vh;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+}
+
+.input-container{
+    width: 70%;
+    height: 100%;
+    margin-right: 4rem;
+    border: none;
+}
+
+.input-container textarea{
+    width: 100%;
+    height: 100%;
+    text-align: start;
+    font-size: 1.1rem;
+    padding: .5rem 1rem;
+    resize: none;
+    overflow: auto;
+    border: 3px solid black;
+    outline: none;
+}
+
+.toggler{
+    display: none;
+}
+
+.tab-container{
+    flex: 1;
+    height: 100%;
+    border: 2px solid grey;
+    overflow: hidden;
+    background-color: white;
+}
+
+.tab-container .tabs{
+    padding: .7rem 1.3rem;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+}
+
+.tab{
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 1rem;
+    cursor: pointer;
+    padding: .5rem;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-container .btns{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.btns button{
+    padding: .6rem 1rem;
+    cursor: pointer;
+}
+
+.btns .add{
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+}
+
+.btns .save{
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.tab-outer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete{
+    margin-bottom: 1rem;
+    margin-left: -15px;
+    color: rgba(0, 0, 0, 0.774);
+    cursor: pointer;
+}
+
+/* selectedTab color */
+
+.selectedTab{
+    background-color: rgba(128, 128, 128, 0.441);
+}
+
+/* save btn access */
+
+.activate{
+    pointer-events: none;
+    opacity: .5;
+}
+
+
+
+@media (max-width : 950px) {
+    .DataContainer{
+        padding: 1rem;
+    }
+    
+    .toggler{
+        color: black;
+        position: relative;
+        display: block;
+        cursor: pointer;
+        font-size: 1.3rem;
+    }
+
+    .input-container{
+        width: 100%;
+        margin-right: 2rem;
+    }
+
+    .tab-container{
+        display: none;
+        background-color: white;
+        min-width: 300px ;
+        height: 86%;
+    }
+
+    .showTabs{
+        display: block !important;
+        position: absolute;
+        top: 85px;
+        right: 40px;
+        z-index: 10;
+    }
+}
+
+@media (max-width :350px) {
+    .tab-container{
+        min-width: 250px;
+    }
+}

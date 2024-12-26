@@ -1,0 +1,103 @@
+/* Main container */
+.room-container {
+    text-align: center;
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  /* Heading */
+  .room-heading {
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: bolder;
+  }
+  
+  /* Form container */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Form sections */
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Input styling */
+  .form-input {
+    width: 80%;
+    max-width: 400px;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Button styling */
+  .form-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Room name */
+  .room-name {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .room-container {
+      padding: 1.5rem;
+    }
+  
+    .form-input {
+      width: 90%;
+    }
+  
+    .form-button {
+      padding: 0.6rem 1rem;
+    }
+  
+    .room-heading {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .room-heading {
+      font-size: 1.5rem;
+    }
+  
+    .form-input {
+      font-size: 0.9rem;
+    }
+  
+    .form-button {
+      font-size: 0.9rem;
+    }
+  }
+  

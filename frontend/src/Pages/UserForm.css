@@ -1,0 +1,30 @@
+.user-form{
+    margin-top: 2rem;
+}
+
+.user-form h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
+
+.user-form input{
+    width: 100%;
+    padding: .9rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.347);
+}
+
+.submit{
+    margin-top: .4rem;
+    width: 100%;
+    padding: .7rem;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+
