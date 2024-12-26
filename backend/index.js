@@ -20,7 +20,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://protectify-df3q.onrender.com",
         allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true,
     }
