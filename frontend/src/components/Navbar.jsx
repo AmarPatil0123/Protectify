@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsLoggedInFalse, setIsLoggedInTrue, resetRoomname, setLoadTabs, handleIsDataNotSaved} from '../features/tabs/tabSlice';
 import { useState } from 'react';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/Logo.png';
 import ChangePassword from './ChangePassword';
 import { persistor } from '../app/store';
 
