@@ -29,7 +29,7 @@ function App() {
           <Route path="/roomdata" element={!room ? <Navigate to="/room" replace/> : <RoomInterface />} />
         </Route>
 
-        <Route path="*" element={user ? <Navigate to="/home" replace/> : <Navigate  to="/" replace/>} /> 
+        <Route path="*" element={user ? <Home /> : <Signin />} /> 
       </Routes>
       </BrowserRouter>  
     </div>
