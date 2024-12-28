@@ -31,9 +31,7 @@ const RoomInterface = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
             socket.emit("send-msg", roomname, data);
-        }, 100);
     }, [data]);
 
     useEffect(() => {
