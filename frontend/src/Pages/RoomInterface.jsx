@@ -18,6 +18,7 @@ const RoomInterface = () => {
     const [joinMsg, setJoinMsg] = useState("");
     const [users, setUsers] = useState([]);
     const [data, setData] = useState("");
+    const [recievedData, setRecievedData] = useState("");
     const [showUsers, setShowUsers] = useState(false);
     const [roomType, setRoomType] = useState("");
     const [showNote, setShowNote] = useState(false);
@@ -30,11 +31,13 @@ const RoomInterface = () => {
     }
 
     useEffect(() => {
-        socket.emit("send-msg", roomname, data);
+        setTimeout(() => {
+            socket.emit("send-msg", roomname, data);
+        }, 100);
     }, [data]);
 
     useEffect(() => {
-        socket.on("sharedData", setData);
+        socket.on("recievedData", setRecievedData);
         socket.on("leave-msg", (msg) => handleMsg(setLeaveMsg, msg));
         socket.on("join-msg", (msg) => handleMsg(setJoinMsg, msg));
         socket.on("users", setUsers);
@@ -138,17 +141,22 @@ const RoomInterface = () => {
         <div className='outer-layer'>
             <ToastContainer />
             <div className='roomDetails'>
-                <span style={{ textAlign: "end" }}>Roomname : {roomname}</span> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span style={{ textAlign: "end" }}>RoomType  : {roomType} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {isAdmin ?<button className='btn btn-primary changeType' onClick={changeRoomType}>Change to {roomType === "Public" ? "Private" : "Public"}</button> : null}
-                </span>
+                <span style={{ textAlign: "end" }}>Roomname : {roomname}</span>
+                {
+                    isAdmin ? 
+                        <span style={{ textAlign: "end" }}>RoomType  : {roomType} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button className='btn btn-primary changeType' onClick={changeRoomType}>Change to {roomType === "Public" ? "Private" : "Public"}</button>
+                        </span>
+                    : null
+                }
+                
 
             </div>
 
             <div className='inner-container'>
 
                 <div className="text-container">
-                    <textarea onChange={(e) => setData(e.target.value)}  className='text' value={data}
+                    <textarea onChange={(e) => setData(e.target.value)}  className='text' value={recievedData}
                         />
                 </div>
 

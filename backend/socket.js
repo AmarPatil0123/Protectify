@@ -54,7 +54,7 @@ const initializeSocket = (io) => {
         });
 
         socket.on("send-msg", (roomname, data) => {
-            io.to(roomname).emit("sharedData", data);
+            io.to(roomname).emit("recievedData", data);
            
         });
 
