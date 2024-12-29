@@ -28,3 +28,7 @@
     cursor: pointer;
 }
 
+.disableSubmit{
+    opacity: .4;
+    pointer-events: none;
+}

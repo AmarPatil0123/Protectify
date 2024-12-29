@@ -52,6 +52,11 @@ const Room = () => {
   
   async function handleJoinRoom() {
 
+    if(joinValue === ""){
+      alert("Roomname cannot be emty")
+      return;
+    }
+
     let res = await axios.get(`https://protecttext.onrender.com/getRoomData/${joinValue}`);
     
     if(res && res.data.message === "room is private"){
@@ -68,10 +73,7 @@ const Room = () => {
 
     socket.emit("join-room", joinValue, username, (response) => {
 
-      if(joinValue === ""){
-        alert("Roomname cannot be emty")
-        return;
-      }
+      
 
       toast.error(response, {
         position: "top-center",

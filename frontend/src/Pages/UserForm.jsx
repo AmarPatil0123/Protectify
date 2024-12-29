@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./UserForm.css";
 import axios from "axios";
@@ -6,13 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {setUsername,handleFormOnchnage, handleFetchedTabs, makeFormEmpty, setIsLoggedInFalse, setIsLoggedInTrue } from '../features/tabs/tabSlice';
-
+import Loading from "../components/Loading";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://protecttext.onrender.com";
 
 
 const UserForm = ({ action, heading }) => {
+
+    const [showLoading, setShowLoading] = useState(false);
 
     const dispatch = useDispatch();
     let { userDetails} = useSelector((state)=>state.tabs);
@@ -29,7 +31,9 @@ const UserForm = ({ action, heading }) => {
         try {
             e.preventDefault();
 
+            setShowLoading(true);
             let response = await axios.post(`/${action}`, userDetails)
+            setShowLoading(false);
 
             dispatch(makeFormEmpty());
 
@@ -77,8 +81,10 @@ const UserForm = ({ action, heading }) => {
                 <h2>{heading}</h2><br />
                 <input type="text" placeholder='Enter Username' name='username' onChange={handleOnchange} value={userDetails.username} required />
                 <input type="password" placeholder='Enter Password' name='password' onChange={handleOnchange} value={userDetails.password} required/>
-                <button type='submit' className='submit'>Submit</button>
+                <button type='submit' className={`submit ${showLoading ? "disableSubmit" : ''}`}>Submit</button>
             </form>
+
+            {showLoading ? <Loading /> : null}
         </>
     )
 }
