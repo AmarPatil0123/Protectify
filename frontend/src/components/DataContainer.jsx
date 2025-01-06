@@ -38,7 +38,10 @@ const DataContainer = () => {
             return
         }
         dispatch(addnewTab(selectedTabData.owner));
-        setAddTabSnackbar(true);
+
+        setTimeout(() => {
+            setAddTabSnackbar(true);
+        }, 400);
 
         setTimeout(() => {
             setAddTabSnackbar(false);
@@ -61,7 +64,10 @@ const DataContainer = () => {
         dispatch(saveData(selectedTabData));
 
         dispatch(saveTabData({ tabId: selectedTabData._id, ownerId: selectedTabData.owner }));
-        setSaveSnackbar(true);
+
+        setTimeout(() => {
+            setSaveSnackbar(true);
+        }, 400);
 
         setTimeout(() => {
             setSaveSnackbar(false);

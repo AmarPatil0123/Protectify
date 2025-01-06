@@ -67,6 +67,8 @@ const UserForm = ({ action, heading }) => {
                 autoClose: 2000,
                 pauseOnHover: false,
               });
+
+              setShowLoading(false);
               navigate("/");
               dispatch(setIsLoggedInFalse());
               dispatch(makeFormEmpty());

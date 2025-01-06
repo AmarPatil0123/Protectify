@@ -1,6 +1,6 @@
 import React  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faL } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
@@ -11,12 +11,14 @@ import { useState } from 'react';
 import Logo from '../assets/Logo.png';
 import ChangePassword from './ChangePassword';
 import { persistor } from '../app/store';
+import Loading from './Loading';
 
 const Navbar = () => {
 
   const [toggleNavbar, setToggleNavbar] = useState(false);
   const {roomname,loadTabs,  fetchError,selectedTab} = useSelector((state)=>state.tabs)
   const [changePass, setChangePass] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,8 +67,12 @@ const Navbar = () => {
 
     if(data){
       try {
+        setShowLoading(true);
+        
         let ownerId = selectedTab.owner;
         const response = await axios.get(`https://protecttext.onrender.com/deleteAccount/${ownerId}`);
+
+        setShowLoading(false);
 
         dispatch(setIsLoggedInFalse());
         dispatch(resetRoomname());
@@ -138,6 +144,8 @@ const Navbar = () => {
       </div>
 
       {changePass && <ChangePassword changePass={changePass} setChangePass={setChangePass} closeCP={closeCP}/>}
+
+      {showLoading ? <Loading /> : null}
     </div>
   );
 };
