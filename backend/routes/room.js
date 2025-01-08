@@ -34,11 +34,11 @@ roomRouter.get("/getRoomData/:roomname", async (req, res) => {
             return res.status(200).json({ message: "room is private", roomType: "Private" });
         }
         else {
-            return res.json({ message: "room is not private", roomType: "Public" });
+            return res.json({roomType: roomname });
 
         }
     } catch (error) {
-        res.json({ error: "Error in fetching data" })
+        res.json({ error: "Error in fetching data", roomType: roomname  })
     }
 });
 
