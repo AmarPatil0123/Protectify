@@ -30,12 +30,15 @@ roomRouter.get("/getRoomData/:roomname", async (req, res) => {
         let { roomname } = req.params;
 
         let room = await Room.findOne({ roomname: roomname });
+
+        if (room && room.groupType === "Public") {
+            return res.status(200).json({roomType: "Public" });
+        }
+
         if (room && room.groupType === "Private") {
             return res.status(200).json({ message: "room is private", roomType: "Private" });
         }
-       
-        res.status(200).json({roomType: room.groupType === "Public" ? 'Public' : "Private" });
-        
+               
     } catch (error) {
         res.json({ error: "Error in fetching data"})
     }

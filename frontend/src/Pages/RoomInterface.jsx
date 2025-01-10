@@ -118,7 +118,7 @@ const RoomInterface = () => {
         let fetchRoomType = async ()=>{
             let res = await axios.get(`https://protecttext.onrender.com/getRoomData/${roomname}`);
             if(res.status === 200 || res.statusText === "OK"){
-                setRoomType(res.data.roomType === "Public" ? "Public" : "Private");
+                setRoomType(res.data.roomType);
             }
         }
 
